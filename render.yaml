@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: prandhara
+    env: node
+    plan: free
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        value: https://prandhara.onrender.com # You will update this after first deploy if the URL changes
