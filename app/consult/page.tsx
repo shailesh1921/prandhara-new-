@@ -78,7 +78,7 @@ export default function ConsultPage() {
                                     <div className="mb-2 flex items-center bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full shadow-sm border">
                                         <Star className="w-4 h-4 text-accent fill-accent mr-1" />
                                         <span className="font-bold text-sm">{doctor.rating}</span>
-                                        <span className="text-xs text-muted-foreground ml-1">({doctor.reviews})</span>
+                                        <span className="text-xs text-muted-foreground ml-1">(0)</span>
                                     </div>
                                 </div>
                             </CardHeader>
