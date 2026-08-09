@@ -2,17 +2,27 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   // In a real app, fetch the blog post from a CMS
   return {
-    title: `${params.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Prandhara Blog`,
+    title: `${resolvedParams.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Prandhara Blog`,
     description: "Read the latest insights and research on holistic wellness at Prandhara Naturopathy.",
   };
 }
+export async function generateStaticParams() {
+  return [
+    { slug: 'benefits-of-ayurvedic-diet' },
+    { slug: 'hydrotherapy-at-home' },
+    { slug: 'herbs-for-stress-relief' },
+    { slug: 'gut-brain-connection' },
+  ];
+}
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   // Mock data for the post
-  const title = params.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const title = resolvedParams.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
   return (
     <article className="container mx-auto px-4 py-12 md:py-20 max-w-3xl">
