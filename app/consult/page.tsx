@@ -54,12 +54,9 @@ export default function ConsultPage() {
     const timeSlots = ["09:00 AM", "10:00 AM", "11:30 AM", "02:00 PM", "04:00 PM"];
 
     return (
-        <div className="min-h-screen bg-background flex flex-col">
-            <Navbar />
-
-            <main className="flex-1 container py-10 px-4 md:px-6">
-                <div className="flex flex-col space-y-4 mb-8 text-center md:text-left">
-                    <h1 className="text-3xl font-serif font-bold text-primary">Expert Consultation</h1>
+        <div className="container py-12 md:py-20 px-4 md:px-6 mx-auto max-w-6xl">
+            <div className="flex flex-col space-y-4 mb-12 text-center md:text-left">
+                <h1 className="text-4xl font-serif font-bold text-primary">Expert Consultation</h1>
                     <p className="text-muted-foreground max-w-2xl">
                         Book a private video session with certified naturopaths and ayurvedic doctors to guide your healing journey.
                     </p>
@@ -162,7 +159,6 @@ export default function ConsultPage() {
                         </Card>
                     ))}
                 </div>
-            </main>
         </div>
     );
 }
